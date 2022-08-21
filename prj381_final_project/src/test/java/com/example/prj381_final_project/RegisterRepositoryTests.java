@@ -1,7 +1,7 @@
 package com.example.prj381_final_project;
 
-import com.example.prj381_final_project.student.Student;
-import com.example.prj381_final_project.student.StudentRepository;
+import com.example.prj381_final_project.register.Register;
+import com.example.prj381_final_project.register.RegisterRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -15,27 +15,28 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @Rollback(false)
-public class UserRepositoryTests {
+public class RegisterRepositoryTests {
 
     @Autowired
     private TestEntityManager entityManager;
 
     @Autowired
-    private StudentRepository repo;
+    private RegisterRepository repo;
 
     @Test
     public void testCreateUser() {
-        Student martin = new Student();
-        martin.setStudent_email("martinerasmus99@gmail.com");
-        martin.setStudent_password("1234");
-        martin.setStudent_name("Martin Erasmus");
-        martin.setStudent_address("15 Fourth Rd Bredell");
+        Register register1 = new Register();
+        register1.setStudent_email("99@gmail.com");
+        register1.setStudent_password("1234");
+        register1.setStudent_name("Steve");
+        register1.setStudent_address("15 Fourth ");
+        register1.setCourse_name("PRG381");
 
-        Student savedUser = repo.save(martin);
+        Register savedUser = repo.save(register1);
 
-        Student existUser = entityManager.find(Student.class, savedUser.getStudent_id());
+        Register existUser = entityManager.find(Register.class, savedUser.getRegister_id());
 
-        assertThat(martin.getStudent_email()).isEqualTo(existUser.getStudent_email());
+        assertThat(register1.getRegister_id()).isEqualTo(existUser.getRegister_id());
 
     }
 }

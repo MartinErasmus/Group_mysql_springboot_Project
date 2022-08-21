@@ -1,5 +1,7 @@
 package com.example.prj381_final_project;
 
+import com.example.prj381_final_project.admin.Admin;
+import com.example.prj381_final_project.admin.AdminRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
