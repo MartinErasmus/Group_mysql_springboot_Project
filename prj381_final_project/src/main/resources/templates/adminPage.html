@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=http://www.thymeleaf.org
+      xmlns:sec=http://www.thymeleaf.org/extras/spring-security
+      xmlns:shiro=http://www.pollix.at/thymeleaf/shiro>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Admin Page</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #929394">
+<div class="container text-center">
+    <h1>Martin Erasmus PRG381 Project - Admin Page</h1>
+        <div>
+            <table>
+                <thead class="thead-dark">
+                <tr>
+                    <th>Student ID</th>
+                    <th>Student E-mail</th>
+                    <th>Student Name</th>
+                    <th>Student Address</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="student: ${listStudent}">
+
+                    <td th:text="${student.student_id}">ID</td>
+                    <td th:text="${student.student_email}">E-mail</td>
+                    <td th:text="${student.student_name}">Name</td>
+                    <td th:text="${student.student_address}">Address</td>
+<!--                    <td> <a th:href= "@{/edit/+ ${student.student_id}}">Edit</a></td>-->
+                    <td> <a th:href= "@{/edit}">Edit</a></td>
+                    <td><button>Remove</button></td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+            <br>
+            <table>
+                <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Course</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="course: ${listRegister}">
+                    <td th:text="${course.student_name}">Name</td>
+                    <td th:text="${course.Course_name}">Address</td>
+                    <td><button>Edit</button></td>
+                    <td><button>Remove</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>

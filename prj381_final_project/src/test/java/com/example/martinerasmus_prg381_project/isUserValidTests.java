@@ -15,7 +15,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @Rollback(false)
-public class UserRepositoryTests {
+public class isUserValidTests {
 
     @Autowired
     private TestEntityManager entityManager;
@@ -24,19 +24,10 @@ public class UserRepositoryTests {
     private StudentRepository repo;
 
     @Test
-    public void testCreateUser() {
-        Student martin = new Student();
-        martin.setStudent_email("martinerasmus1999@gmail.com");
-        martin.setStudent_password("1234");
-        martin.setStudent_name("Test User");
-        martin.setStudent_address("15 Fourth Rd Bredell");
+    public void testFindUserByEmail(){
+        String email ="martinerasmus99@gmail.com";
+        Student student = repo.findByEmail(email);
 
-        Student savedUser = repo.save(martin);
-
-        Student existUser = entityManager.find(Student.class, savedUser.getStudent_id());
-
-        assertThat(martin.getStudent_email()).isEqualTo(existUser.getStudent_email());
+        assertThat(student).isNotNull();
     }
-
-
 }

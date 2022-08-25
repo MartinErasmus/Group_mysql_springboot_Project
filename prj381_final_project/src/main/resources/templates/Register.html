@@ -9,14 +9,14 @@
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body style="background-color: #929394">
 <div class="container text-center">
-    <h1>Welcome to Martin's HTML Register</h1>
+    <h1>Martin Erasmus PRG381 Project - Register Student</h1>
     <!DOCTYPE html>
     <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="ISO-8859-1">
-        <title>Sign Up - CodeJava</title>
+        <title>Register</title>
         <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
         <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
@@ -24,7 +24,7 @@
     <body>
     <div class="container text-center">
         <div>
-            <h1>User Registration - Sign Up</h1>
+            <h1>Sign Up</h1>
         </div>
         <form th:action="@{/register_user}" th:object="${user}"
               method="post" style="max-width: 600px; margin: 0 auto;">
@@ -40,7 +40,7 @@
                     <label class="col-4 col-form-label">Password: </label>
                     <div class="col-8">
                         <input type="password" th:field="*{student_password}" class="form-control"
-                               required minlength="6" maxlength="10"/>
+                               required minlength="8"/>
                     </div>
                 </div>
 
